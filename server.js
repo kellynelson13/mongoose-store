@@ -5,6 +5,7 @@ const port = 3000;
 const mongoose = require("mongoose");
 require("dotenv").config();
 const Product = require("./models/products")
+const productSeed = require("./models/productSeed");
 
 // Database Connection
 mongoose.connect(process.env.DATABASE_URL, {
@@ -25,7 +26,21 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTES //
 
+// SEED //
+app.get("/products/seed", (req, res) => {
+    Product.create(productSeed, (error, data) => {
+        res.redirect("/products");
+    })
+})
+
 // INDEX //
+app.get("/products", (req, res) => {
+    Product.find({}, (error, allProducts) => {
+        res.render("index.ejs", {
+            products: allProducts,
+        })
+    })
+})
 
 // NEW //
 app.get("/products/new", (req, res) => {
