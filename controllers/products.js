@@ -44,12 +44,11 @@ productRouter.post("/", (req, res) => {
 
 // EDIT //
 productRouter.get("/:id/edit", (req, res) => {
-    // Product.findById(req.params.id, (error, foundProduct) => {
-    //     res.render("edit.ejs", {
-    //         product: foundProduct,
-    //     })
-    // })
-    res.send("edit route is working")
+    Product.findById(req.params.id, (error, foundProduct) => {
+        res.render("edit.ejs", {
+            product: foundProduct,
+        })
+    })
 })
 
 // SHOW //

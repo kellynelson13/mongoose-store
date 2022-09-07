@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        font-family: "Poppins";
+        font-weight: 500;
+        color: #519fb1;
+        border-bottom: 2px solid #519fb1;
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        width: 50%;
+      }
+      legend {
+        padding: 0px 10px;
+        font-family: "Poppins";
+        font-weight: 500;
+        color: #e39774;
+      }
+      label {
+        font-family: "Oswald";
+        font-weight: 200;
+        color: #e39774;
+        display: block;
+      }
+      input,
+      textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #519fb1;
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        width: 100%;
+        height: 50px;
+        background: #e39774;
+        box-shadow: 2px 2px #519fb1;
+        font-family: "Oswald";
+        font-size: 1.3em;
+        color: whitesmoke;
+        border: 0px;
+        transition: 0.2s ease-in-out;
+      }
+      input[type="submit"]:hover {
+        cursor: pointer;
+        background: #519fb1;
+        box-shadow: 2px 2px #e39774;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Page</title>
+  </head>
+  <body>
+    <h1>Create New Product</h1>
+    <form action="/products" method="POST">
+      <fieldset>
+        <legend>Product Information</legend>
+        <!----------Name Label/input--------->
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= product.name%>"/><br />
+        <!----------description Label/input------->
+        <label for="description">Description</label>
+        <textarea name="description" id="description"><%= product.description%></textarea><br />
+        <!----------Image Label/input------->
+        <label for="img">Image URL</label>
+        <input type="text" name="img" id="img" value="<%= product.img%>"/><br />
+        <!----------Price Label/input------->
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price" value="<%= product.price%>"/><br />
+        <!----------Quantity Label/input------->
+        <label for="qty">Quantity</label>
+        <input type="text" name="qty" id="qty" value="<%= product.qty%>"/><br />
+        <!----------Submit Label/input------->
+        <input type="submit" value="Create Product" />
+      </fieldset>
+    </form>
+  </body>
+</html>
