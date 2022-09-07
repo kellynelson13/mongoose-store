@@ -4,8 +4,9 @@ const app = express();
 const port = 3000;
 const mongoose = require("mongoose");
 require("dotenv").config();
-const Product = require("./models/products")
-const productSeed = require("./models/productSeed");
+const productsController = require("./controllers/products")
+const methodOverride = require("method-override");
+
 
 // Database Connection
 mongoose.connect(process.env.DATABASE_URL, {
@@ -23,6 +24,8 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // Middleware
 // Body parser middleware: give us access to req.body
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+app.use("/products", productsController)
 
 // ROUTES //
 
