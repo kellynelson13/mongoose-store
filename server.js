@@ -27,11 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES //
 
 // SEED //
-app.get("/products/seed", (req, res) => {
-    Product.create(productSeed, (error, data) => {
-        res.redirect("/products");
-    })
-})
+// app.get("/products/seed", (req, res) => {
+//     Product.create(productSeed, (error, data) => {
+//         res.redirect("/products");
+//     })
+// })
 
 // INDEX //
 app.get("/products", (req, res) => {
@@ -57,6 +57,13 @@ app.get("/products/new", (req, res) => {
 // EDIT //
 
 // SHOW //
+app.get("/products/:id", (req, res) => {
+    Product.findById(req.params.id, (error, foundProduct) => {
+        res.render("show.ejs", {
+            product: foundProduct,
+        })
+    })
+})
 
 // Listener //
 app.listen(port, () => {
