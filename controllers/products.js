@@ -34,6 +34,17 @@ productRouter.delete("/:id", (req, res) => {
 })
 
 // UPDATE //
+productRouter.put("/:id", (req, res) => {
+    Product.findByIdAndUpdate(
+        req.params.id, 
+        req.body,
+        {
+            new:true,
+        },
+        (error, updatedProduct) => {
+            res.redirect(`/products/${req.params.id}`)
+    })
+})
 
 // CREATE //
 productRouter.post("/", (req, res) => {

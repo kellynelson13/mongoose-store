@@ -62,10 +62,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Page</title>
+    <title>Edit Page</title>
   </head>
   <body>
-    <h1>Create New Product</h1>
+    <h1>Edit Product</h1>
     <form action="/products" method="POST">
       <fieldset>
         <legend>Product Information</legend>
@@ -85,7 +85,7 @@
         <label for="qty">Quantity</label>
         <input type="text" name="qty" id="qty" value="<%= product.qty%>"/><br />
         <!----------Submit Label/input------->
-        <input type="submit" value="Create Product" />
+        <input type="submit" value="Edit Product" />
       </fieldset>
     </form>
   </body>
