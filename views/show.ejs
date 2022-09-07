@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        background-color: EEEEEE;
+      }
+      nav, .edit {
+        background-color: #519fb1;
+        height: 40px;
+      }
+      nav a, .edit a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+        top: 10px;
+      }
+      nav a:hover, .edit a:hover {
+        color: #e39774;
+      }
+      img {
+        width: 50%;
+      }
+      .container {
+        border: solid 1px #519fb1;
+        width: 40%;
+        margin: 15px auto;
+        border-radius: 8px;
+        background-color: #E39774;
+        padding: 10px;
+      }
+      
+      
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <a href="/products">Back to all products</a>
+      <a href="/products">Back to all products</a>
     </nav>
-    <h1><%= product.name%></h1>
-    <img src="<%= product.img%>" alt="<%= product.name%>">
-    <p><%= product.description%></p>
-    <p>$<%= product.price%></p>
-    <p><%= product.qty%> remaining</p>
-    <a href="/products/edit">Edit this product</a>
-</body>
+    <div class="container">
+      <h1><%= product.name%></h1>
+      <img src="<%= product.img%>" alt="<%= product.name%>" />
+      <p><%= product.description%></p>
+      <p>$<%= product.price%></p>
+      <p><%= product.qty%> remaining</p>
+    </div>
+    <div class="edit">
+        <a href="/products/edit">Edit this product</a>
+    </div>
+  </body>
 </html>
