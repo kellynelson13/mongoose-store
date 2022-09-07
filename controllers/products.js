@@ -45,6 +45,20 @@ productRouter.put("/:id", (req, res) => {
             res.redirect(`/products/${req.params.id}`)
     })
 })
+productRouter.put("/:id/buy", (req, res) => {
+    Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new:true},
+        (error, updatedItem) => {
+            updatedItem.qty -= 1
+            updatedItem.save()
+            res.redirect(`/products/${req.params.id}`)
+        }
+
+    )
+})
+
 
 // CREATE //
 productRouter.post("/", (req, res) => {
