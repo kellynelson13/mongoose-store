@@ -52,7 +52,11 @@ app.get("/products/new", (req, res) => {
 // UPDATE //
 
 // CREATE //
-
+app.post("/products", (req, res) => {
+    Product.create(req.body, (error, createdProduct) => {
+        res.redirect("/products")
+    })
+})
 
 // EDIT //
 
