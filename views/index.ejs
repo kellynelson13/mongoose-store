@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Products</title>
-</head>
-<body>
+    <style>
+      * {
+            box-sizing: border-box;
+        }
+      body {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        background-color: EEEEEE;
+      }
+      nav {
+        background-color: #519fb1;
+        height: 40px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+        top: 10px;
+      }
+      nav a:hover {
+        color: #e39774;
+      }
+      img {
+        width: 200px;
+      }
+      ul {
+        list-style: none;
+        margin: 10px;
+        display: inline-block;
+      }
+      li {
+        display: inline-block;
+      }
+      div {
+        border: solid 2px #519fb1;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
     <nav>
-        <a href="/products/new">Add a New Product</a>
-      </nav>
+      <a href="/products/new">Add a New Product</a>
+    </nav>
     <h1>Shop All Products</h1>
     <ul>
-        <% products.forEach(product => { %>
-            <li>
-                <%=product.name%>
-            </li>
-            <li><a href="/products/<%= product._id %>">
-                <img src="<%=product.img%>" />
-            </a></li>
-            <li>
-                $<%=product.price%>
-            </li>
-       <% }) %>
+      <% products.forEach(product => { %>
+      <div>
+        <li><%=product.name%></li>
+        <br />
+        <li>
+          <a href="/products/<%= product._id %>">
+            <img src="<%=product.img%>" />
+          </a>
+        </li>
+        <br />
+        <li>$<%=product.price%></li>
+      </div>
+      <% }) %>
     </ul>
-</body>
+  </body>
 </html>
