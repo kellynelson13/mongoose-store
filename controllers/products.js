@@ -45,6 +45,7 @@ productRouter.put("/:id", (req, res) => {
             res.redirect(`/products/${req.params.id}`)
     })
 })
+/// This is an extra route for the buy button:
 productRouter.put("/:id/buy", (req, res) => {
     Product.findByIdAndUpdate(
         req.params.id,
